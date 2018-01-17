@@ -1,0 +1,18 @@
+{
+  "name": "SlackLed",
+  "version": "0.0.2",
+  "manifest_version": 2,
+  "minimum_chrome_version": "25",
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "icons": {
+    
+
+    "500": "assets/SlackLed.png" 
+  },
+  "permissions": [ "serial",  "storage" ],
+  "description": "Slack Control of LEDs"
+}

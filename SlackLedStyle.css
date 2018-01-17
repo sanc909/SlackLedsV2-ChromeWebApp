@@ -1,0 +1,326 @@
+<style>
+
+
+
+input, output, textarea {
+
+  box-shadow: 1px 1px 5px #ccc inset;
+  padding: 1em;
+}
+
+container {
+
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    position:relative;
+    z-index: 11;
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+/* Rotate first bar */
+.change .bar1 {
+    
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+} 
+
+.overlay {
+  position: absolute;
+  z-index:1; 
+  
+  left: 100%;
+  height: 38%;
+  right : 5%; 
+  background-color: #eee;
+  overflow: hidden;
+  width: 0;
+  
+  transition: .5s ease;
+}
+
+
+.boxedThin {
+
+      padding: 3px;
+      margin: 2 auto; padding: 1em; border: 1px solid #CCC;border-radius: 1em; 
+
+}
+.boxedThick {
+
+      padding: 3px;
+      margin: 2 auto; padding: 1em; border: 3px solid #CCC;border-radius: 2em; 
+}
+
+
+textarea {
+  width: 100%;
+  height: 70px;
+  padding: 1px;
+  padding: 1em;
+  background: #eee;
+}
+
+output {
+  display: block;
+  background: #eee;
+}
+
+
+input[type=checkbox].toggle {
+  
+  vertical-align:middle;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 62px;
+  height: 28px;
+  display: inline-block;
+  position: relative;
+  border-radius: 50px;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #707070;
+  transition: background-color ease 0.3s;
+}
+
+ input[type=checkbox].toggle:before {
+  content: "On Off";
+  display: block;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  font: 10px/28px Arial;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-indent: -22px;
+  word-spacing: 37px;
+  color: #fff;
+  text-shadow: -1px -1px rgba(0,0,0,0.15);
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
+}
+
+ input[type=checkbox].toggle:checked {
+  background-color: #4CD964;
+}
+ input[type=checkbox].toggle:checked:before {
+  left: 32px;
+}
+
+input[type=radio] {
+  
+  position: relative;
+  -webkit-appearance: none;
+  margin-left: 0px;
+  margin-right: 0px;
+  border: 1px solid #CCC;
+  width: 30px;
+  height: 30px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+input[type=radio]:before {
+  content: "";
+  visibility: visible;
+  position: absolute;
+
+
+  border-radius: 25%;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+input[type=radio]:checked:before {
+text-align: center;
+align:middle;
+font-weight:bold;
+font-size:150%;    
+content: '\2713';
+color: white;  
+}
+input[type=number] {
+  width: 45px;  
+  line-height: 27px;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  width: 30px;
+  height: 30px;
+}
+
+
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+button.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+
+
+
+
+.slack_form h2 {
+    text-align: middle;
+    display: inline;
+}
+.required_notification {
+    color:#d45252; 
+    margin:5px 0 0 0; 
+    display:inline;
+    float:right;
+}
+
+
+.slack_form ul {
+
+    width:500px;
+    list-style-type:none;
+    list-style-position:outside;
+    margin: 0px;
+    padding:0px;
+}
+.slack_form li{
+
+    padding:12px; 
+    border-bottom:1px solid #eee;
+    position:relative;
+}
+
+
+
+.slack_form h2 {
+   
+    margin:0;
+    display: inline;
+}
+.required_notification {
+    color:#d45252; 
+    margin:5px 0 0 0; 
+    display:inline;
+    float:right;
+}
+
+.slack_form label {
+
+    text-align:right;
+    font-weight:bold;
+    width:50px;
+    display:inline-block;
+    float:left;
+    padding:3px;
+    clear: both;
+}
+.slack_form input {
+
+    height:20px; 
+    width:350px; 
+    padding:3px;
+    
+    clear: both;
+}
+
+.slack_form button {margin-left:156px;}
+
+
+/* Button Style */
+button.submit {
+    background-color: #68b12f;
+    background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#50911e));
+    background: -webkit-linear-gradient(top, #68b12f, #50911e);
+    background: -moz-linear-gradient(top, #68b12f, #50911e);
+    background: -ms-linear-gradient(top, #68b12f, #50911e);
+    background: -o-linear-gradient(top, #68b12f, #50911e);
+    background: linear-gradient(top, #68b12f, #50911e);
+    border: 1px solid #509111;
+    border-bottom: 1px solid #5b992b;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    box-shadow: inset 0 1px 0 0 #9fd574;
+    -webkit-box-shadow: 0 1px 0 0 #9fd574 inset ;
+    -moz-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -ms-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -o-box-shadow: 0 1px 0 0 #9fd574 inset;
+    color: white;
+    font-weight: bold;
+    padding: 6px 20px;
+
+    text-shadow: 0 -1px 0 #396715;
+}
+button.submit:hover {
+    opacity:.85;
+    cursor: pointer; 
+}
+button.submit:active {
+    border: 1px solid #20911e;
+    box-shadow: 0 0 10px 5px #356b0b inset; 
+    -webkit-box-shadow:0 0 10px 5px #356b0b inset ;
+    -moz-box-shadow: 0 0 10px 5px #356b0b inset;
+    -ms-box-shadow: 0 0 10px 5px #356b0b inset;
+    -o-box-shadow: 0 0 10px 5px #356b0b inset;
+     
+}
+.slack_form input:focus:invalid, .slack_form textarea:focus:invalid { /* when a field is considered invalid by the browser */
+    background: #fff  no-repeat 98% center;
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
+.slack_form input:required:valid, .slack_form textarea:required:valid { /* when a field is considered valid by the browser */
+    background: #fff no-repeat 98% center;
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}
+::-webkit-input-placeholder {
+    color: #CCC;
+    font-style:italic;
+}
+
+
+</style>

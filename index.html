@@ -1,0 +1,121 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="SlackLedStyle.css">
+</head>
+<body><!--}}}-->
+<div align="center">
+ <h1>SlackLed</h1>
+</div>
+<div>
+ <table align="right" >
+ <tr >
+  <td width="50px" >
+
+  <div class="container" id="hamburgerMenu">
+    <div class="bar1"></div>
+
+    <div class="bar2" id="middleBar" ></div>
+    <div class="bar3"></div>
+    
+  </div> 
+
+  </td>
+ </tr>
+</table>
+</div>
+    <div id="settingsOverlay" class="overlay">
+        
+        <form class="slack_form" action="" method="post" name="slack_form" target="_blank">
+ 
+        <ul>
+        <li>
+            <h2>Enter Slack details</h2>
+        </li>
+        <li>
+            <label for="url">URL</label>
+            <input type="url" name="url" id="url"   required value="https://slack.com/api/rtm.connect?token="/ placeholder="https://slack.com/api/rtm.connect?token="/>
+           
+        </li>
+        <li>
+            <label for="token">Token</label>
+            <input type="password" autocomplete="off" name="token" id="token" required placeholder="xoxb-123456789012-AAAAAAAAAAAAAAAAAAAAAAAA" />
+
+        </li>  
+        <li>
+            <label for="slackUserID">Slack UserID  </label>
+            <input type="text" autocomplete="off" name="slackUserID" id="slackUserID" required placeholder="UAAAAAAAAAAA" />
+        </li>  
+        
+        <li>
+            <button class="submit" type="submit" id="submit"  >Save</button>
+        </li>        
+        </ul>
+       </form>
+</div>
+
+<div id="connect_box" class="boxedThick">
+  <h2>Connect to SlackLed   </h2>
+  <button  class="button" id="listDevices_button">List Devices</button>
+  <select id="port_list"><option>Please Wait...</option></select>
+  <button  class="button" id="connect_button">Connect</button>
+  <button  class="button disabled" id="disconnect_button" disabled=true>Disconnect</button>
+
+</div>
+
+<div id="manualcontrol_box" class="boxedThick">
+<h2>Manually control SlackLed<h2>
+<div class="boxedThin">
+<table>
+<tr>
+  <th>Zebra</th>
+  <th>Colour</th>
+  <th>Bright</th>
+</tr>
+<tr>
+  <th> <input class="toggle" disabled=true type="checkbox" id="ZebraModeToggle" name="ZebraMode" ></th> 
+  <td><input type='radio' name='colour' id="red"    value='red'   disabled=true style="background-color: red;" >
+      <input type='radio' name='colour' id="green"  value='green' disabled=true style="background-color: green;">
+      <input type='radio' name='colour' id="blue"   value='blue'  disabled=true style="background-color: blue;">
+      <input type='radio' name='colour' id="yellow" value='yellow'disabled=true style="background-color: yellow;">
+      <input type='radio' name='colour' id="purple" value='purple'disabled=true style="background-color: purple;">
+      <input type='radio' name='colour' id="pink"   value='pink'  disabled=true style="background-color: pink;">
+      <input type='radio' name='colour' id="white"  value='white' disabled=true style="background-color: white;">  
+      <input type='radio' name='colour' id="black"  value='black' disabled=true style="background-color: black;" checked >
+  </td>
+  <td>
+  <input id="brightness" type="number" class="numeric-input" value="50" min="0" max="100" disabled=true ></input>  
+  </td>
+</tr>
+</table>
+</div>
+  
+</div>
+
+<div id="Slack control_box" class="boxedThick" >
+<h2>Slack controls SlackLed <input class="toggle" type="checkbox"  disabled=true id="connectToSlackToggle" name="ConnectToSlackToggle" ><h2>
+</div> 
+  
+
+
+<div id="csv_content_monitor">
+  <label>Device Output Monitor</label>
+  <textarea id="textAreaId" readonly></textarea>
+</div>
+
+
+<div id="status_bar">
+  <label>SlackLed Status Monitor</label>
+  <output></output>
+</div>
+
+
+<!-- Include main code -->
+<script type="text/javascript" src="js/slack.js"></script>
+<script type="text/javascript" src="js/serial.js"></script>
+
+
+
+
+
+</body>
+</html>
